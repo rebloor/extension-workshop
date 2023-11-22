@@ -104,7 +104,7 @@ To signal to AMO that your extension is compatible with Android, include at leas
 
 AMO's browser version compatibility settings determine whether the extension is listed in a search of AMO from a version of Firefox and whether it is available for installation. When an extension is uploaded to AMO, the extension's browser compatibility settings in AMO are set from the `browser_specific_settings` of the extension's manifest.
 
-AMO's compatibility settings can be used to adjust an extension's availability after publication. For example, if user feedback reveals compatibility issues with older versions of Firefox, you can adjust the minimum Firefox version setting to prevent other users from encountering that bug. Remember, if you set a wider range of supported versions in AMO, AMO shows that the extension is installable. but the installation process fails due to the Firefox version limits set in its manifest file.
+AMO's compatibility settings can be used to adjust an extension's availability after publication. For example, if user feedback reveals compatibility issues with older versions of Firefox, you can adjust the minimum Firefox version setting to prevent other users from encountering that bug. Remember, if you set a wider range of supported versions in AMO, AMO shows that the extension is installable, but installation fails due to the Firefox version limits set in its manifest file.
 
 To manually configure the browser compatibility settings:
 
