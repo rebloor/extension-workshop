@@ -35,10 +35,10 @@ Version compatibility controls let you manage which versions of Firefox can inst
 
 There are two ways to control Firefox version compatibility settings for an add-on. Each setting controls a different part of the add-on installation experience.
 
-- The `browser_specific_settings` field in manifest.json: This controls the version compatibility check that the user's web browser performs during installation. It is also used to populate AMO's compatibility controls.
+- The `browser_specific_settings` field in manifest.json: This controls the version compatibility check the user's web browser performs during installation. It is also used to populate AMO's compatibility controls.
 - AMO's compatibility controls: This controls what extensions appear in search results on AMO and are available for installation from AMO.
 
-The way these two mechanisms interact means it's possible to make an extension available for download in a Firefox version that will not install it. To avoid this, it's strongly recommended that you only use `browser_specific_settings` to control browser compatibility settings.
+The way these two mechanisms interact means making an extension available for download in a Firefox version that will not install it is possible. Therefore, it's strongly recommended that you only use `browser_specific_settings` to control browser compatibility settings.
 
 {% endcapture %}
 {% include modules/column-w-toc.liquid,
@@ -65,17 +65,17 @@ There are two subkeys for Firefox browsers:
 - `gecko_android` for the Android version of Firefox.
 
 ::: note
-Firefox for iOS and Firefox Focus do not support add-ons and therefore do not have subkeys.
+Firefox for iOS and Firefox Focus do not support add-ons and, therefore, do not have subkeys.
 :::
 
 Both `gecko` and `gecko_android` accept two version-related properties:
 
--`strict_min_version`, which specifies the earliest version of the browser that can load the extension. 
-- `strict_max_version`, which specifies the latest version of the browser that can load the extension. *Avoid unless absolutely necessary.*
+- `strict_min_version` specifies the earliest browser version that can load the extension. 
+- `strict_max_version` specifies the latest browser version that can load the extension. *Avoid unless absolutely necessary.*
 
 ### Android compatibility
 
-To signal to AMO that your extension is compatible with Android, include, at least, an empty `browser_specific_settings.gecko_android` object in your manifest. If you don't, AMO assumes that the extension is not compatible with Android and does not list it as available on Android. This can be manually overridden using AMO's compatibility controls. Omitting `"gecko_android"` does not affect Firefox for Android's ability to install the extension.
+To signal to AMO that your extension is compatible with Android, include at least an empty `browser_specific_settings.gecko_android` object in your manifest. If you don't, AMO assumes that the extension is not compatible with Android and does not list it as available on Android. This can be manually overridden using AMO's compatibility controls. Omitting `"gecko_android"` does not affect Firefox for Android's ability to install the extension.
 
 ```json
 {
@@ -104,7 +104,7 @@ To signal to AMO that your extension is compatible with Android, include, at lea
 
 AMO's browser version compatibility settings determine whether the extension is listed in a search of AMO from a version of Firefox and whether it is available for installation. When an extension is uploaded to AMO, the extension's browser compatibility settings in AMO are set from the `browser_specific_settings` of the extension's manifest.
 
-AMO's compatibility settings can be used to adjust an extension's availability after publication. For example, if user feedback reveals compatibility issues with older versions of Firefox, you can adjust the minimum Firefox version setting to prevent other users from encountering that bug. Remember, if you set a wider range of supported versions in AMO, AMO will show that the extension is installable but the installation process will fail due to the Firefox version limits set in its manifest file.
+AMO's compatibility settings can be used to adjust an extension's availability after publication. For example, if user feedback reveals compatibility issues with older versions of Firefox, you can adjust the minimum Firefox version setting to prevent other users from encountering that bug. Remember, if you set a wider range of supported versions in AMO, AMO shows that the extension is installable. but the installation process fails due to the Firefox version limits set in its manifest file.
 
 To manually configure the browser compatibility settings:
 
@@ -116,7 +116,7 @@ To manually configure the browser compatibility settings:
 
 4. Choose the extension version you want to configure.
 
-5. In the compatibility section, for the product you want to specify versions for, select the earliest and latest product versions this version of your add-on is compatible with. Remember, if you used `browser_specific_settings.gecko_android` the compatibility settings for Android are locked.<br/><br/> <img src="/assets/img/publish/configure_versions_manage_page.png" alt="Screen showing the manage version options, including the settings for compatibility." style="box-shadow:0 0 0.5em gray;" />
+5. In the compatibility section, for the product you want to specify versions for, select the earliest and latest product versions this version of your add-on is compatible with. Remember, if you use `browser_specific_settings.gecko_android` the compatibility settings for Android are locked.<br/><br/> <img src="/assets/img/publish/configure_versions_manage_page.png" alt="Screen showing the manage version options, including the settings for compatibility." style="box-shadow:0 0 0.5em gray;" />
 
 6. Select **Save Changes** to apply your edits.
 
